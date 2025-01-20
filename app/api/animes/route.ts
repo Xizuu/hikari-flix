@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
             data: animes.data,
             hasNext: animes.hasNext,
         });
-    } catch (error) {
+    } catch (error: Error) {
         return NextResponse.json({
             status: false,
             message: error.message || "An error occurred",

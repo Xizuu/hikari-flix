@@ -11,7 +11,7 @@ export async function GET(request: NextRequest, { params }: { params: { slug: st
             status: true,
             data: anime
         });
-    } catch (error) {
+    } catch (error: Error) {
         return NextResponse.json({
             status: false,
             message: error.message || "An error occurred",
