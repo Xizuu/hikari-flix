@@ -28,7 +28,7 @@ interface AnimeProps {
     status: string;
 }
 
-interface EpisodeProps {
+interface EpisodeSelectorProps {
     anime: string;
     animeSlug: string;
 }
@@ -38,7 +38,7 @@ interface EpisodeProps {
     slug: string;
 }
 
-function EpisodeSelector({ anime, animeSlug }: EpisodeProps) {
+function EpisodeSelector({ anime, animeSlug }: EpisodeSelectorProps) {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
     const [episodes, setEpisodes] = useState<EpisodeProps[]>([]);
