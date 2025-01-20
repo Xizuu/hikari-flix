@@ -11,10 +11,18 @@ export async function GET(request: NextRequest, { params }: { params: { slug: st
             status: true,
             data: anime
         });
-    } catch (error: Error) {
-        return NextResponse.json({
-            status: false,
-            message: error.message || "An error occurred",
-        });
+    } catch (error: unknown) {
+        if (error instanceof Error) {
+            return NextResponse.json({
+                status: false,
+                message: error.message || "An error occurred",
+            });
+        } else {
+            return NextResponse.json({
+                status: false,
+                message: "An unknown error occurred",
+            });
+        }
     }
+
 }
