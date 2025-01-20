@@ -7,25 +7,27 @@ interface VideoProps {
 }
 
 export default function VideoPlayer({ videoUrl }: VideoProps) {
-    const videoRef = useRef(null);
+    const videoRef = useRef<HTMLVideoElement | null>(null);
 
     useEffect(() => {
-        const player = videojs(videoRef.current, {
-            controls: true,
-            autoplay: true,
-            muted: true,
-            preload: 'auto',
-        });
+        if (videoRef.current) {
+            const player = videojs(videoRef.current as Element, {
+                controls: true,
+                autoplay: true,
+                muted: true,
+                preload: 'auto',
+            });
 
-        player.src({
-            src: videoUrl
-        });
+            player.src({
+                src: videoUrl
+            });
 
-        return () => {
-            if (player) {
-                player.dispose();
-            }
-        };
+            return () => {
+                if (player) {
+                    player.dispose();
+                }
+            };
+        }
     }, [videoUrl]);
 
     return (
