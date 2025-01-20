@@ -28,7 +28,12 @@ interface AnimeProps {
     status: string;
 }
 
-function EpisodeSelector({ anime, animeSlug }) {
+interface EpisodeProps {
+    anime: string;
+    animeSlug: string;
+}
+
+function EpisodeSelector({ anime, animeSlug }: EpisodeProps) {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
     const [episodes, setEpisodes] = useState([]);
@@ -172,4 +177,3 @@ export default function GenrePage() {
         </div>
     )
 }
-
