@@ -20,6 +20,8 @@ export async function GET(request: NextRequest) {
             sort: "update",
         });
 
+        console.log(animes)
+
         return NextResponse.json({
             status: true,
             data: animes.data,
