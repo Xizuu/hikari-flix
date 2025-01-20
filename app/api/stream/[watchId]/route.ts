@@ -19,7 +19,7 @@ export async function GET(request: NextRequest, { params }: { params: { watchId:
             status: true,
             data: streams,
         });
-    } catch (error: any) {
+    } catch (error) {
         return NextResponse.json({
             status: false,
             message: error.message || "An error occurred",

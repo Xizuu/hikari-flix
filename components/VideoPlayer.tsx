@@ -8,8 +8,8 @@ export default function VideoPlayer({ videoUrl }) {
     useEffect(() => {
         const player = videojs(videoRef.current, {
             controls: true,
-            autoplay: true, // Aktifkan autoplay
-            muted: true,    // Pastikan video dimulai tanpa suara
+            autoplay: true,
+            muted: true,
             preload: 'auto',
         });
 

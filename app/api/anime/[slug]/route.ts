@@ -7,13 +7,11 @@ export async function GET(request: NextRequest, { params }: { params: { slug: st
 
         const anime = await animasu.getAnime(slug)
 
-        // console.log(stream)
-
         return NextResponse.json({
             status: true,
             data: anime
         });
-    } catch (error: any) {
+    } catch (error) {
         return NextResponse.json({
             status: false,
             message: error.message || "An error occurred",

@@ -1,8 +1,5 @@
 import {MobileNav} from "@/components/mobile-nav";
 import Link from "next/link";
-import {Input} from "@/components/ui/input";
-import {Button} from "@/components/ui/button";
-import {Search} from "lucide-react";
 import Image from "next/image";
 
 export default function Navbar() {
