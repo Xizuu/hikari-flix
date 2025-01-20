@@ -33,10 +33,15 @@ interface EpisodeProps {
     animeSlug: string;
 }
 
+interface EpisodeProps {
+    episode: string;
+    slug: string;
+}
+
 function EpisodeSelector({ anime, animeSlug }: EpisodeProps) {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(true);
-    const [episodes, setEpisodes] = useState([]);
+    const [episodes, setEpisodes] = useState<EpisodeProps[]>([]);
 
     useEffect(() => {
         const fetchEpisodes = async () => {
