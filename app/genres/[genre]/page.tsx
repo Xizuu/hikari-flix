@@ -45,7 +45,7 @@ function EpisodeSelector({ anime, animeSlug }: EpisodeSelectorProps) {
 
     useEffect(() => {
         const fetchEpisodes = async () => {
-            const response = await fetch(`/api/anime/${animeSlug}`);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/anime/${animeSlug}`);
             const result = await response.json();
             setEpisodes(result.data.episodes);
         };
@@ -87,8 +87,9 @@ export default function GenrePage() {
     useEffect(() => {
         setIsLoading(true)
         const fetchAnimesByGenre = async () => {
-            const response = await fetch(`/api/animes?genre=${genre}&page=${currentPage}`)
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/animes?genre=${genre}&page=${currentPage}`)
             const result = await response.json()
+            // console.log(result)
             setFilteredAnime(result.data)
             setHasNext(result.hasNext)
         }
@@ -182,3 +183,4 @@ export default function GenrePage() {
         </div>
     )
 }
+

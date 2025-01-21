@@ -41,11 +41,11 @@ export default function WatchPage() {
                 const params = new URLSearchParams(queryString);
 
                 // Fetch Movie
-                const responseMovie = await fetch(`/api/stream/${params.get("episode")}`);
+                const responseMovie = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/stream/${params.get("episode")}`);
                 const resultMovie = await responseMovie.json();
 
                 // Fetch anime info
-                const responseAnime = await fetch(`/api/anime/${readableWatchId[0]}`);
+                const responseAnime = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/anime/${readableWatchId[0]}`);
                 const resultAnime = await responseAnime.json();
 
                 setMovie({
